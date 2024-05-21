@@ -58,7 +58,7 @@ export default function InstagramMessagesPage() {
   useEffect(() => {
     const handleAuthStateChange = (user) => {
       if (user) {
-        console.log("User is logged in:", user.uid);
+        // console.log("User is logged in:", user.uid);
       } else {
         console.log("User is logged out");
       }
@@ -71,9 +71,9 @@ export default function InstagramMessagesPage() {
       onAuthStateChanged(auth, handleAuthStateChange); // Remove listener on component unmount
     };
   }, []);
-  console.log(auth?.currentUser?.uid, "currentUser Id");
+  // console.log(auth?.currentUser?.uid, "currentUser Id");
 
-  console.log(selectedUserId, "selected user id");
+  // console.log(selectedUserId, "selected user id");
 
   const handleUserClick = (userId) => {
     const newChatRoomId = generateChatRoomId(userId, auth?.currentUser?.uid);
@@ -88,8 +88,6 @@ export default function InstagramMessagesPage() {
     // setIsAuth(false);
     // setIsInChat(false);
   };
-
-  console.log(chatRoomId?.includes(selectedUserId), "checcking");
 
   const getMessageTime = (value) => {
     console.log(value, "get message time value");
@@ -108,7 +106,6 @@ export default function InstagramMessagesPage() {
 
       {/* page container section */}
       <div className="flex w-full justify-center overflow-auto bg-white-A700 md:flex-col">
-        {/* sidebar navigation section of chat application */}
         {/* <Sidebar1 /> */}
 
         {/* main content section */}

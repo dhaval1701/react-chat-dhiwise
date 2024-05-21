@@ -35,7 +35,7 @@ const MessageList = ({ userId, chatRoomId }) => {
 
   const messagesRef = collection(db, "messages");
 
-  console.log(chatRoomId, "chat room id");
+  // console.log(chatRoomId, "chat room id");
 
   useEffect(() => {
     const queryMessages = query(
@@ -64,7 +64,7 @@ const MessageList = ({ userId, chatRoomId }) => {
 
         const userData = userSnapshot.docs.map((doc) => doc.data());
 
-        console.log(userData);
+        // console.log(userData);
         setUserData(userData[0]);
       } catch (error) {
         console.error("Error fetching user name:", error);
@@ -85,8 +85,6 @@ const MessageList = ({ userId, chatRoomId }) => {
   };
 
   const handleSubmit = async (event) => {
-    console.log(newMessage, auth.currentUser.displayName);
-
     if (newMessage === "") return;
     await addDoc(messagesRef, {
       text: newMessage,
@@ -99,7 +97,7 @@ const MessageList = ({ userId, chatRoomId }) => {
     setNewMessage("");
   };
 
-  console.log(messages, "messages");
+  // console.log(messages, "messages");
 
   // Function to scroll to the bottom of the chat container
   const scrollToBottom = () => {

@@ -22,8 +22,6 @@ const SignIn = ({ setIsAuth }) => {
     try {
       const result = await signInWithPopup(auth, provider);
 
-      console.log(result, "result");
-
       // Check if the user already exists in Firestore
       const userSnapshot = await getDocs(
         query(signInRef, where("userId", "==", result.user.uid))
