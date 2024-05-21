@@ -108,7 +108,7 @@ export default function InstagramMessagesPage() {
 
       {/* page container section */}
       <div className="flex w-full justify-center overflow-auto bg-white-A700 md:flex-col">
-        {/* sidebar navigation section */}
+        {/* sidebar navigation section of chat application */}
         {/* <Sidebar1 /> */}
 
         {/* main content section */}
