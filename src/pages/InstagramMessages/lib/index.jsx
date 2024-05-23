@@ -125,7 +125,7 @@ const MessageList = ({ userId, chatRoomId }) => {
 
     // Get the date of the current message
     const messageDate = dayjs
-      .unix(message.createdAt.seconds)
+      .unix(message?.createdAt?.seconds)
       .format("YYYY-MM-DD");
 
     const messageTime = dayjs
@@ -142,17 +142,6 @@ const MessageList = ({ userId, chatRoomId }) => {
     const showDate = messageDate !== prevMessageDate;
 
     return { isCurrentUser, messageDate, showDate, messageTime };
-  };
-
-  const calculateMessageTimeInfo = (message, index) => {
-    const isCurrentUser = auth.currentUser.uid === message.userId;
-
-    // Get the date of the current message
-    const messageTime = dayjs
-      .unix(message.createdAt.seconds)
-      .format("MMMM DD, YYYY");
-
-    return { messageTime };
   };
 
   return (
@@ -181,7 +170,7 @@ const MessageList = ({ userId, chatRoomId }) => {
             className="flex flex-col items-end gap-2 self-stretch px-[7px] pb-[30px] pt-[9px] sm:pb-5 overflow-auto"
           >
             <div className="flex flex-col items-center self-stretch">
-              {messages.length === 0 ? (
+              {messages?.length === 0 ? (
                 <div className="mt-10">
                   <p className="text-lg text-gray-500">Start a chat</p>
                 </div>
@@ -196,13 +185,13 @@ const MessageList = ({ userId, chatRoomId }) => {
                         <div className="flex justify-center items-end p-5 h-[10%]">
                           <p className="text-sm text-gray-600 mt-2 mb-1">
                             {dayjs
-                              .unix(message.createdAt.seconds)
+                              .unix(message?.createdAt?.seconds)
                               .format("MMMM DD, YYYY")}
                           </p>
                         </div>
                       )}{" "}
                       <div
-                        key={message.id}
+                        key={message?.id}
                         className={`flex max-w-[50%] ${
                           isCurrentUser
                             ? "justify-end self-end"
@@ -218,7 +207,7 @@ const MessageList = ({ userId, chatRoomId }) => {
                                 <Text as="p" className="break-all">
                                   {" "}
                                   {/* Add break-all to allow long words to break */}
-                                  {message.text}
+                                  {message?.text}
                                 </Text>
                               </div>
                               <div className="ml-auto">
@@ -243,7 +232,7 @@ const MessageList = ({ userId, chatRoomId }) => {
                               {/* Message content */}
                               <div className="flex self-center rounded-[12px] border border-solid border-gray-200 p-3 m-1">
                                 <Text as="p" className="break-all">
-                                  {message.text}
+                                  {message?.text}
                                 </Text>
                               </div>
                               <div className="ml-1">
